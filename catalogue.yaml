@@ -43,6 +43,12 @@
     ansible.builtin.package:
      name: mongodb-org-shell
      state: present
+  - name: get catalogue count
+    ansible.builtin.command: mongo --host mongodb.kalidindi.cloud --quiet --eval 'db = db.getSiblingDB("catalogue");db.products.count()'
+    register: product_count
+  - name: print count
+    ansible.builtin.debug:
+     msg: "prouct count:{{product_count}}"   
   
     
 
