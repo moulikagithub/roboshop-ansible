@@ -37,8 +37,8 @@
       daemon_reload: true
   - name: copy mongodb.repo
     ansible.builtin.copy:
-    src: mongodb.repo
-    dest: /etc/yum.repos.d/mongodb.repo
+     src: mongodb.repo
+     dest: /etc/yum.repos.d/mongodb.repo
   - name: install mongodb-client
     ansible.builtin.package:
      name: mongodb-org-shell
