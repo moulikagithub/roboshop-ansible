@@ -51,12 +51,12 @@
       name: mongodb-org-shell
       state: present
   - name: get the categories count
-    ansible.builtin.command:  mongo --host mongodb.kalidindi.cloud --quiet --eval 'db = db.getSiblingDB("user"); db.products.count()'
-    register: product_count
+    ansible.builtin.command:  mongo --host mongodb.kalidindi.cloud --quiet --eval 'db = db.getSiblingDB("user"); db.user.count()'
+    register: user_count
 
   - name: print the count
     ansible.builtin.debug:
-      msg: "product count: {{product_count}}"
+      msg: "product count: {{user_count}}"
 
   - name: load catalogue data
     ansible.builtin.command: mongo --host mongodb.kalidindi.cloud < /app/schema/user.js
