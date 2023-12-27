@@ -20,5 +20,6 @@
      replace: '0.0.0.0'
   - name: enable and restart redis
     ansible.builtin.service:
+     name: redis
      state: restarted
      enabled: yes
